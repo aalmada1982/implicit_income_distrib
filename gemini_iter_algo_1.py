@@ -41,3 +41,12 @@ print(np.round(x, 6))
 print(f"\nFinal Sum of x: {np.sum(x):.6f}")
 print(
     f"Final Product x * i: {np.dot(x, i):.6f} (Difference: {abs(np.dot(x, i) - r_target):.6f})")
+
+# Target reached in 8635 iterations.
+
+# Final x vector:
+# [0.       0.003414 0.015289 0.031034 0.047768 0.067471 0.089153 0.125503
+#  0.183446 0.436921]
+
+# Final Sum of x: 1.000000
+# Final Product x * i: 0.022990 (Difference: 0.000010)
