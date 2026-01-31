@@ -102,3 +102,138 @@ df_2018_pit_rev_gdp_pct = df_2018[df_2018['variable'] == 'pit_rev_gdp_pct']
 df_2018_pit_rev_gdp_pct.set_index('decile', inplace=True)
 
 print(df_2018_pit_rev_gdp_pct, "\n")
+
+# Extracting inc_dist_cedlas for Argentina
+
+print(df_2018_inc_dist_cedlas, "\n")
+print(df_2018_inc_dist_cedlas['Argentina'], "\n")
+
+# Extracting pit_incid_lacir for Argentina
+
+print(df_2018_pit_incid_lacir, "\n")
+print(df_2018_pit_incid_lacir['Argentina'], "\n")
+
+# Extracting pit_rev_gdp_pct for Argentina
+
+print(df_2018_pit_rev_gdp_pct, "\n")
+print(df_2018_pit_rev_gdp_pct['Argentina'], "\n")
+
+# Running the algorithm on Argentina
+
+x_arg = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Argentina'],
+    df_2018_pit_incid_lacir['Argentina'],
+    df_2018_pit_rev_gdp_pct['Argentina']
+)
+
+print(x_arg, "\n")
+
+print(x_arg.dot(df_2018_pit_incid_lacir['Argentina']), "\n")
+
+# Running the algorithm on Bolivia
+
+x_bol = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Bolivia'],
+    df_2018_pit_incid_lacir['Bolivia'],
+    df_2018_pit_rev_gdp_pct['Bolivia']
+)
+
+print(x_bol, "\n")
+
+print(x_bol.dot(df_2018_pit_incid_lacir['Bolivia']), "\n")
+
+# Running the algorithm on Brazil
+
+x_bra = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Brazil'],
+    df_2018_pit_incid_lacir['Brazil'],
+    df_2018_pit_rev_gdp_pct['Brazil']
+)
+
+print(x_bra, "\n")
+
+print(x_bra.dot(df_2018_pit_incid_lacir['Brazil']), "\n")
+
+# Running the algorithm on Chile
+
+x_chi = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Chile'],
+    df_2018_pit_incid_lacir['Chile'],
+    df_2018_pit_rev_gdp_pct['Chile']
+)
+
+print(x_chi, "\n")
+
+print(x_chi.dot(df_2018_pit_incid_lacir['Chile']), "\n")
+
+# Running the algorithm on Colombia
+
+x_col = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Colombia'],
+    df_2018_pit_incid_lacir['Colombia'],
+    df_2018_pit_rev_gdp_pct['Colombia']
+)
+
+print(x_col, "\n")
+
+print(x_col.dot(df_2018_pit_incid_lacir['Colombia']), "\n")
+
+# Running the algorithm on Dominican R.
+
+x_rd = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Dominican R.'],
+    df_2018_pit_incid_lacir['Dominican R.'],
+    df_2018_pit_rev_gdp_pct['Dominican R.']
+)
+
+print(x_rd, "\n")
+
+print(x_rd.dot(df_2018_pit_incid_lacir['Dominican R.']), "\n")
+
+# Running the algorithm on Honduras
+
+x_hond = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Honduras'],
+    df_2018_pit_incid_lacir['Honduras'],
+    df_2018_pit_rev_gdp_pct['Honduras']
+)
+
+print(x_hond, "\n")
+
+print(x_hond.dot(df_2018_pit_incid_lacir['Honduras']), "\n")
+
+# Running the algorithm on Mexico
+
+x_mex = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Mexico'],
+    df_2018_pit_incid_lacir['Mexico'],
+    df_2018_pit_rev_gdp_pct['Mexico']
+)
+
+print(x_mex, "\n")
+
+print(x_mex.dot(df_2018_pit_incid_lacir['Mexico']), "\n")
+
+# Running the algorithm on Peru
+
+x_per = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Peru'],
+    df_2018_pit_incid_lacir['Peru'],
+    df_2018_pit_rev_gdp_pct['Peru']
+)
+
+print(x_per, "\n")
+
+print(x_per.dot(df_2018_pit_incid_lacir['Peru']), "\n")
+
+# Running the algorithm on Uruguay
+
+x_uru = solve_vector_incidence_pandas(
+    df_2018_inc_dist_cedlas['Uruguay'],
+    df_2018_pit_incid_lacir['Uruguay'],
+    df_2018_pit_rev_gdp_pct['Uruguay']
+)
+
+print(x_uru, "\n")
+
+print(x_uru.dot(df_2018_pit_incid_lacir['Uruguay']), "\n")
