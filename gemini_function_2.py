@@ -61,6 +61,8 @@ final_series = solve_vector_incidence_pandas(
 print("Resulting x Series:")
 print(final_series)
 
+# Addressing it using a Data Frame
+
 df_2018 = pd.read_csv('data_pit_lac_2018.csv')
 
 print(df_2018)
@@ -237,3 +239,174 @@ x_uru = solve_vector_incidence_pandas(
 print(x_uru, "\n")
 
 print(x_uru.dot(df_2018_pit_incid_lacir['Uruguay']), "\n")
+
+# -------------------------------------------------------------------------
+# To bring the table to 2023
+# 1. we have to infer the LACIR incidence
+# 2. after that we should infer the gross income distribution
+# Lets try it for Argentina
+# No, the algo will need to be changed, SOLUTION, USE LACIR INC AND ADJUST GROSS INCOME DISTRIBUTION AND REV
+
+# Importing the new data frame
+
+print("\n", "Importing the new data frame: 2023", "\n")
+
+df_2023 = pd.read_csv('data_pit_lac_2023.csv')
+
+print(df_2023)
+
+# Reindexing of CEDLAS Income Distribution 2023
+
+df_2023_inc_dist_cedlas = df_2023[df_2023['variable'] == 'inc_dist_cedlas']
+
+df_2023_inc_dist_cedlas.set_index('decile', inplace=True)
+
+print(df_2023_inc_dist_cedlas, "\n")
+
+# Reindexing of LACIT PIT Incidence 2023 (in fact it is the same as 2018)
+
+df_2023_pit_incid_lacir = df_2023[df_2023['variable'] == 'pit_incid_lacir']
+
+df_2023_pit_incid_lacir.set_index('decile', inplace=True)
+
+print(df_2023_pit_incid_lacir, "\n")
+
+# Extracting pit_rev_gdp_pct 2023
+
+df_2023_pit_rev_gdp_pct = df_2023[df_2023['variable'] == 'pit_rev_gdp_pct']
+
+df_2023_pit_rev_gdp_pct.set_index('decile', inplace=True)
+
+print(df_2023_pit_rev_gdp_pct, "\n")
+
+# Testing the compromise solution for Argentina 2023
+
+# print(df_2023_pit_rev_gdp_pct['Argentina'], "\n")
+
+# ARGENTINA 2023
+
+x_arg_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Argentina'],
+    df_2018_pit_incid_lacir['Argentina'],
+    df_2023_pit_rev_gdp_pct['Argentina']
+)
+
+print(x_arg_2023, "\n")
+
+print(x_arg_2023.dot(df_2018_pit_incid_lacir['Argentina']), "\n")
+print(x_arg_2023.dot(df_2023_pit_incid_lacir['Argentina']), "\n")
+
+
+# VSCode Keyboard Shortcut: Replace All Occurrences Matching Current Text Selection
+# CTRL + D
+# Continue pressing Ctrl+D to select additional occurrences you want to replace.
+# To skip a match, press Ctrl+K then Ctrl+D.
+
+
+# BOLIVIA 2023
+
+x_bol_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Bolivia'],
+    df_2018_pit_incid_lacir['Bolivia'],
+    df_2023_pit_rev_gdp_pct['Bolivia']
+)
+
+print(x_bol_2023, "\n")
+
+print(x_bol_2023.dot(df_2018_pit_incid_lacir['Bolivia']), "\n")
+
+# BRAZIL 2023
+
+x_bra_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Brazil'],
+    df_2018_pit_incid_lacir['Brazil'],
+    df_2023_pit_rev_gdp_pct['Brazil']
+)
+
+print(x_bra_2023, "\n")
+
+print(x_bra_2023.dot(df_2018_pit_incid_lacir['Brazil']), "\n")
+
+# CHILE 2023
+
+x_chi_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Chile'],
+    df_2018_pit_incid_lacir['Chile'],
+    df_2023_pit_rev_gdp_pct['Chile']
+)
+
+print(x_chi_2023, "\n")
+
+print(x_chi_2023.dot(df_2018_pit_incid_lacir['Chile']), "\n")
+
+# COLOMBIA 2023
+
+x_col_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Colombia'],
+    df_2018_pit_incid_lacir['Colombia'],
+    df_2023_pit_rev_gdp_pct['Colombia']
+)
+
+print(x_col_2023, "\n")
+
+print(x_col_2023.dot(df_2018_pit_incid_lacir['Colombia']), "\n")
+
+# DOMINICAN REPUBLIC 2023
+
+x_dr_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Dominican R.'],
+    df_2018_pit_incid_lacir['Dominican R.'],
+    df_2023_pit_rev_gdp_pct['Dominican R.']
+)
+
+print(x_dr_2023, "\n")
+
+print(x_dr_2023.dot(df_2018_pit_incid_lacir['Dominican R.']), "\n")
+
+# HONDURAS 2023
+
+x_hond_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Honduras'],
+    df_2018_pit_incid_lacir['Honduras'],
+    df_2023_pit_rev_gdp_pct['Honduras']
+)
+
+print(x_hond_2023, "\n")
+
+print(x_hond_2023.dot(df_2018_pit_incid_lacir['Honduras']), "\n")
+
+# MEXICO 2023
+
+x_mex_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Mexico'],
+    df_2018_pit_incid_lacir['Mexico'],
+    df_2023_pit_rev_gdp_pct['Mexico']
+)
+
+print(x_mex_2023, "\n")
+
+print(x_mex_2023.dot(df_2018_pit_incid_lacir['Mexico']), "\n")
+
+# PERU 2023
+
+x_per_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Peru'],
+    df_2018_pit_incid_lacir['Peru'],
+    df_2023_pit_rev_gdp_pct['Peru']
+)
+
+print(x_per_2023, "\n")
+
+print(x_per_2023.dot(df_2018_pit_incid_lacir['Peru']), "\n")
+
+# URUGUAY 2023
+
+x_uru_2023 = solve_vector_incidence_pandas(
+    df_2023_inc_dist_cedlas['Uruguay'],
+    df_2018_pit_incid_lacir['Uruguay'],
+    df_2023_pit_rev_gdp_pct['Uruguay']
+)
+
+print(x_uru_2023, "\n")
+
+print(x_uru_2023.dot(df_2018_pit_incid_lacir['Uruguay']), "\n")
